@@ -1,6 +1,6 @@
 # Dont Starve Together Dedicated Server Auto Setup
 
-Author: [viplazylmht](https://github.com/viplazylmht/)
+Author: [viplazylmht](https://github.com/viplazylmht/).
 
 ## What is this?
 
