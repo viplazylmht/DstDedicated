@@ -18,7 +18,7 @@ def process_notebook(notebook_filename):
             del cell['id']     
 
     with open(notebook_filename, 'wt', encoding="utf8") as f:
-        json.dump(data, f, ensure_ascii=False)
+        json.dump(data, f, indent=4, ensure_ascii=False)
          
     print(f"Processed {notebook_filename}")
 
