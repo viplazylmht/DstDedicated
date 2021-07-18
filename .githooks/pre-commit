@@ -1,4 +1,6 @@
 #!/bin/sh
+# source: https://github.com/mcullan/jupyter-actions
+# Please note that you need to configure this git variable locally: git config --local core.hooksPath .githooks
 
 # Get all notebooks currently staged for commit
 notebooks=`git diff --cached --name-only --diff-filter=d | grep  .ipynb`

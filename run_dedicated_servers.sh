@@ -2,11 +2,14 @@
 
 # Send DST_DIR to 1st parameter of this shellcode
 # Send Cluster name to 2nd param, default to MyDediServer
+# Send INSTALL_TEMP_DIR to 3rd param
 
 DST_DIR=$1
 cluster_name=$2
-steamcmd_dir="$DST_DIR/steamcmd"
-install_dir="$DST_DIR/dontstarvetogether_dedicated_server"
+INSTALL_TEMP_DIR=$3
+
+steamcmd_dir="$INSTALL_TEMP_DIR/steamcmd"
+install_dir="$INSTALL_TEMP_DIR/dontstarvetogether_dedicated_server"
 #cluster_name="MyDediServer"
 dontstarve_dir="$DST_DIR/DoNotStarveTogether"
 
