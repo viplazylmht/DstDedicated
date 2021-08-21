@@ -34,13 +34,23 @@ check_for_file "$dontstarve_dir/$cluster_name/cluster_token.txt"
 check_for_file "$dontstarve_dir/$cluster_name/Master/server.ini"
 check_for_file "$dontstarve_dir/$cluster_name/Caves/server.ini"
 
+## validate section, we will backup mod file first
+echo "Backup mods..."
+cp $INSTALL_TEMP_DIR/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua $INSTALL_TEMP_DIR/dedicated_server_mods_setup.lua
+
+echo "Validating game..."
 ./steamcmd.sh +force_install_dir "$install_dir" +login anonymous +app_update 343050 validate +quit
 
-check_for_file "$install_dir/bin"
+echo "Restore mods"
+cp $INSTALL_TEMP_DIR/dedicated_server_mods_setup.lua $INSTALL_TEMP_DIR/dontstarvetogether_dedicated_server/mods/dedicated_server_mods_setup.lua
 
-cd "$install_dir/bin" || fail
+# start game
 
-run_shared=(./dontstarve_dedicated_server_nullrenderer)
+check_for_file "$install_dir/bin64"
+
+cd "$install_dir/bin64" || fail
+
+run_shared=(./dontstarve_dedicated_server_nullrenderer_x64)
 run_shared+=(-console)
 run_shared+=(-cluster "$cluster_name")
 run_shared+=(-monitor_parent_process $$)
